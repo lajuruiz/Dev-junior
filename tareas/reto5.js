@@ -123,7 +123,7 @@ console.log(arrayNumberss)
 
 let arrayDiferent = [2,true,"hola"];
 arrayDiferent.every(
-    (currentValue, index, myArray) => typeof currentValue === typeof myArray[index - 1]
+    (currentValue, index, myArray) => index ===0 || typeof currentValue === typeof myArray[index - 1]
 )
 
 
