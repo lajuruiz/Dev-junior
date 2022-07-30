@@ -46,6 +46,10 @@ function toDivide(a,b) {
     if(typeof a !== 'number'  || typeof b !== 'number'){
         console.log("es un objeto o texto")
         return 0
+    }
+    else if(b===0){
+        console.log("No se puede dividir por 0")
+        return 0
     }else{
         return a/b 
     }
@@ -60,11 +64,24 @@ console.log(toAdd({},255))
 
 
 console.log(toSubtract(235,50))
+console.log(toSubtract("235",50))
+console.log(toSubtract(1025,2890))
+console.log(toSubtract(202588,0.2))
+console.log(toSubtract(220,50))
 
+
+console.log(toMultiply(20,52))
 console.log(toMultiply(12,52))
+console.log(toMultiply({names:"laura"},52))
+console.log(toMultiply(85962,520))
+console.log(toMultiply(12,1))
+
 
 console.log(toDivide(23,"b"))
-console.log(toDivide(12323,28))
+console.log(toDivide(0,28))
+console.log(toDivide(23,{}))
+console.log(toDivide(12323,true))
+console.log(toDivide(2344255,0))
 
 
 /* Vamos a crear una arrow function para pasarla como callback a un .map() que se le aplicará a una lista de strings, está
