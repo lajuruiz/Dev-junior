@@ -77,7 +77,6 @@ console.log(toSubtract(1025,2890))
 console.log(toSubtract(202588,0.2))
 console.log(toSubtract(220,50))
 
-
 console.log(toMultiply(20,52))
 console.log(toMultiply(12,52))
 console.log(toMultiply({names:"laura"},52))
@@ -95,12 +94,6 @@ console.log(toDivide(2344255,0))
 /* Vamos a crear una arrow function para pasarla como callback a un .map() que se le aplicará a una lista de strings, está
 función tendrá la capacidad de encriptar nuestro lenguaje, y lo que hará es:
 1. Primero convertir todo el mensaje a mayúscula. */
-
-let textArray=["Los números pueden utilizarse como letras, y la frase resultante puede ser leída sin mucho esfuerzo.",
-    "Este es un mensaje super encriptado y solo los mejores podrán leerlo."]
-let encriptar1=textArray.map(string => string.toUpperCase())
-console.log(encriptar1)
-
 /* 2. Convertir los siguientes carácteres:
 ● A -> 4
 ● S -> 5
@@ -118,15 +111,31 @@ Pista: Existe un método de String para reemplazar letras. */
 // First we create the object
 /* https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/entries */
 
-let objectEncriptar = {"A": 4, "S": 5, "E": 3, "O": 0, "G": 6, "I": 1, "T": 7 }
-let testText = "LOS NÚMEROS PUEDEN UTILIZARSE COMO LETRAS, Y LA FRASE RESULTANTE PUEDE SER LEÍDA SIN MUCHO ESFUERZO."/* "ESTE ES UN MENSAJE SUPER ENCRIPTADO Y SOLO LOS MEJORES PODRÁN LEERLO."] */
+let textArray=["Los números pueden utilizarse como letras, y la frase resultante puede ser leída sin mucho esfuerzo.",
+    "Este es un mensaje super encriptado y solo los mejores podrán leerlo."]
+let encriptar1=textArray.map(textString => textString.toUpperCase())
+console.log(encriptar1);
+
 
 // first solution looping through the string an generating a new one with the values
-let newTest = "";
+/* let newTest = "";
 for (var [key, value] of Object.entries(testText)) {
     newTest += objectEncriptar[value] || value;
 }
-console.log(newTest)
+console.log(newTest) */
+
+
+let mensaje1=encriptar1.map(textString => textString.replace(/[A]/g, 4));
+let mensaje2=mensaje1.map(textString => textString.replace(/[S]/g, 5));
+let mensaje3=mensaje2.map(textString => textString.replace(/[E]/g, 3));
+let mensaje4=mensaje3.map(textString => textString.replace(/[O]/g, 0));
+let mensaje5=mensaje4.map(textString => textString.replace(/[G]/g, 6));
+let mensaje6=mensaje5.map(textString => textString.replace(/[I]/g, 1));
+let mensajeFinal=mensaje6.map(textString => textString.replace(/[Í]/g, 1));
+
+console.log(mensajeFinal[0]);
+console.log(mensajeFinal[1]);
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //new form 
 
@@ -148,10 +157,41 @@ console.log(frasesEncriptadas)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // First solution using regex + replace
-let objectEncriptar1 = {"A": 4, "S": 5, "E": 3, "O": 0, "G": 6, "I": 1, "T": 7 }
+/* let objectEncriptar1 = {"A": 4, "S": 5, "E": 3, "O": 0, "G": 6, "I": 1, "T": 7 }
 let testText2 = "LOS NÚMEROS PUEDEN UTILIZARSE COMO LETRAS, Y LA FRASE RESULTANTE PUEDE SER LEÍDA SIN MUCHO ESFUERZO."
 
     for (let [key, value] of Object.entries(objectEncriptar1)) {
     testText2 = testText2.replace(new RegExp(key, 'g'), value)
     }
     console.log(testText2);
+ */
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+let objectEncriptar = {"A": 4, "S": 5, "E": 3, "O": 0, "G": 6, "I": 1, "T": 7 }
+    let testText = ["LOS NÚMEROS PUEDEN UTILIZARSE COMO LETRAS, Y LA FRASE RESULTANTE PUEDE SER LEÍDA SIN MUCHO ESFUERZO.","ESTE ES UN MENSAJE SUPER ENCRIPTADO Y SOLO LOS MEJORES PODRÁN LEERLO."] 
+    
+    // first solution looping through the string an generating a new one with the values
+    for (const test of testText){
+        let newTest = ""
+        for (const letra of test) {
+            newTest += objectEncriptar[letra] || letra
+        }
+        console.log(newTest)
+    }
+    
+
+const phrases = ["LOS NÚMEROS PUEDEN UTILIZARSE COMO LETRAS, Y LA FRASE RESULTANTE PUEDE SER LEÍDA SIN MUCHO ESFUERZO.","ESTE ES UN MENSAJE SUPER ENCRIPTADO Y SOLO LOS MEJORES PODRÁN LEERLO."];
+
+const replaceLetter = (phrase, key, value) => phrase.replaceAll(key, value);
+
+const encriptarSecondOption = (phrase) => {
+    const objectEncriptar = {"A": 4, "S": 5, "E": 3, "O": 0, "G": 6, "I": 1, "T": 7 }
+    phrase = phrase.toUpperCase();
+    for (const [key, value] of Object.entries(objectEncriptar))
+        phrase = replaceLetter(phrase,key,value);
+    return phrase;
+}
+
+const encriptedPhrases = phrases.map(encriptarSecondOption);
+console.log(encriptedPhrases);
