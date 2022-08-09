@@ -68,8 +68,13 @@ console.log(toSubtract("235",50))
 console.log(toSubtract(1025,2890))
 console.log(toSubtract(202588,0.2))
 console.log(toSubtract(220,50))
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> 20b2a0df5ab1d1079e6d99ee942d16b715c09c1c
 console.log(toMultiply(20,52))
 console.log(toMultiply(12,52))
 console.log(toMultiply({names:"laura"},52))
