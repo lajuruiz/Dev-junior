@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="chiste"> </h1>
+    <script>
+        const endpoint="https://api.dadjokes.io/api/random/joke";
+        fetch(endpoint)
+        .then(response => response.json())
+        .then(data => {
+            const listaChiste= data.body;
+            const primerChiste=listosChiste[0];
+            const chiste= primerChiste.setup
+            const respuesta=primerChiste.punchline
+            document.getElementById("chiste").innerHTML= chiste;
+            console.log(chiste,respuesta)
+        })
+    </script>
+</body>
+</html>
