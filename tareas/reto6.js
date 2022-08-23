@@ -14,7 +14,6 @@ Y como plus, debemos validar que los parámetros si cumplan con que sean número
 diferente como un texto u otro objeto, entonces debemos imprimir el error y devolver cero en ese
 caso */
 
-
 function toAdd(a,b){
     if(typeof a !== 'number'  || typeof b !== 'number'){
         console.log("es un objeto o texto")
@@ -52,6 +51,15 @@ function toDivide(a,b) {
         return 0
     }else{
         return a/b 
+    }
+}
+
+function potenciacion(a,b) {
+    if(typeof a !== 'number'  || typeof b !== 'number'){
+        console.log("es un objeto o texto")
+        return 0
+    }else{
+        return a ** b 
     }
 }
 
@@ -109,6 +117,14 @@ let encriptar1=textArray.map(textString => textString.toUpperCase())
 console.log(encriptar1);
 
 
+// first solution looping through the string an generating a new one with the values
+/* let newTest = "";
+for (var [key, value] of Object.entries(testText)) {
+    newTest += objectEncriptar[value] || value;
+}
+console.log(newTest) */
+
+
 let mensaje1=encriptar1.map(textString => textString.replace(/[A]/g, 4));
 let mensaje2=mensaje1.map(textString => textString.replace(/[S]/g, 5));
 let mensaje3=mensaje2.map(textString => textString.replace(/[E]/g, 3));
@@ -132,9 +148,10 @@ let mensaje=frase.toUpperCase().replace(/[A]/g, 4).replace(/[S]/g, 5).replace(/[
     return mensaje
 }
 const frasesEncriptadas = frases.map(encriptar);
-   for (encritada of frasesEncriptadas) {
+console.log(frasesEncriptadas)
+/*    for (encritada of frasesEncriptadas) {
         console.log(frasesEncriptadas)
-   }
+   } */
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

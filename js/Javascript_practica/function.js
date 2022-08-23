@@ -17,6 +17,13 @@ function saludo(nombre){
 
 saludo("Laura");
 
+function saludo(saludoo, nombre){
+    console.log(saludoo + " eu soi " + nombre)
+}
+
+saludo("Oi","Laura");
+
+
 function number(a,b){
     return a * b
 }
@@ -37,7 +44,6 @@ let resta=(a,b) => a - b;
 
 const numeros=[1,2,3,4];
 const resultado=numeros.map((numero) =>{
-    const prod= numero * 2;
     return prod +2
 });
 
