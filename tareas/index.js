@@ -1,19 +1,19 @@
 //getElementById
-let header=document.getElementById("header")
-console.log(header);
+/* let header=document.getElementById("header")
+console.log(header); */
 //trae la etiqueta
 /* console.log(header.textContent); */
 
 //getElementsByClassName
-let parrafos=document.getElementsByClassName("parrafo")
+/* let parrafos=document.getElementsByClassName("parrafo")
 console.log(parrafos)
 let arrayParrafos= [...parrafos];
-console.log(arrayParrafos)
+console.log(arrayParrafos) */
 // colecccion de html y el array que se paso con el spread operator
 
 //getElementByTagNAme
-let p= document.getElementsByTagName("p");
-console.log(p);
+/* let p= document.getElementsByTagName("p");
+console.log(p); */
 // colecccion de html
 
 //document.querySelector

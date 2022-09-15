@@ -14,7 +14,7 @@
         .then(response => response.json())
         .then(data => {
             const listaChiste= data.body;
-            const primerChiste=listosChiste[0];
+            const primerChiste=listaChiste[0];
             const chiste= primerChiste.setup
             const respuesta=primerChiste.punchline
             document.getElementById("chiste").innerHTML= chiste;
