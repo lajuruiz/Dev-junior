@@ -81,7 +81,6 @@ class Punto {
         this.x = x;
         this.y = y;
 
-
         if(x){
             this.x = x; 
          }
